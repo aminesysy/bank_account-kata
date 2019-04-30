@@ -3,7 +3,6 @@ package com.bochkati.kata.builder;
 import static org.assertj.core.api.Assertions.assertThat;
 import com.bochkati.kata.domain.Account;
 import com.bochkati.kata.domain.Transaction;
-import com.bochkati.kata.domain.TransactionType;
 import com.bochkati.kata.exception.WrongAmountException;
 import com.bochkati.kata.service.AccountService;
 import org.junit.Before;
@@ -13,23 +12,24 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class AccountTransactionBuilderTest {
-
+    private static final String NEW_LINE = System.lineSeparator();
+    private static final String DOUBLE_NEW_LINE = NEW_LINE + NEW_LINE;
     private static final Object EMPTY_STATMENT = ""
-            + "AccountId:	ACC-01\n"
-            + "CustomerId:	BOCHKATI-01\n\n"
-            + "+-----------+------------+--------+--------------+\n"
-            + "| AccountID |    Date    |  TYPE  |    Amount    |\n"
-            + "+-----------+------------+--------+--------------+\n"
+            + "AccountId:	ACC-01" + NEW_LINE
+            + "CustomerId:	BOCHKATI-01" + DOUBLE_NEW_LINE
+            + "+-----------+------------+--------+--------------+" + NEW_LINE
+            + "| AccountID |    Date    |  TYPE  |    Amount    |" + NEW_LINE
+            + "+-----------+------------+--------+--------------+" + NEW_LINE
             + "+-----------+------------+--------+--------------+";
 
     private String expectedStatement = ""
-            + "AccountId:	ACC-01\n"
-            + "CustomerId:	BOCHKATI-01\n\n"
-            + "+-----------+------------+--------+--------------+\n"
-            + "| AccountID |    Date    |  TYPE  |    Amount    |\n"
-            + "+-----------+------------+--------+--------------+\n"
-            + "|      1    | %s | CREDIT | 0001000,0000 |\n"
-            + "|      2    | %s |  DEBIT | 0001500,0000 |\n"
+            + "AccountId:	ACC-01" + NEW_LINE
+            + "CustomerId:	BOCHKATI-01" + DOUBLE_NEW_LINE
+            + "+-----------+------------+--------+--------------+" + NEW_LINE
+            + "| AccountID |    Date    |  TYPE  |    Amount    |" + NEW_LINE
+            + "+-----------+------------+--------+--------------+" + NEW_LINE
+            + "|      1    | %s | CREDIT | 0001000,0000 |" + NEW_LINE
+            + "|      2    | %s |  DEBIT | 0001500,0000 |" + NEW_LINE
             + "+-----------+------------+--------+--------------+";
 
     private AccountService service;

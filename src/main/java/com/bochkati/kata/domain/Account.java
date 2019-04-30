@@ -5,16 +5,17 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Optional;
 
+
 public class Account {
 
-    private static final String NEW_LINE = "\n";
-    private static final String DOUBLE_NEW_LINE = "\n\n";
+    private static final String NEW_LINE = System.lineSeparator();
+    private static final String DOUBLE_NEW_LINE = NEW_LINE + NEW_LINE;
     private static final String TAB = "\t";
 
     private static final String STATMENT_HEADER =
-                    "+-----------+------------+--------+--------------+\n" +
-                    "| AccountID |    Date    |  TYPE  |    Amount    |\n" +
-                    "+-----------+------------+--------+--------------+\n";
+                    "+-----------+------------+--------+--------------+" + NEW_LINE +
+                    "| AccountID |    Date    |  TYPE  |    Amount    |" + NEW_LINE +
+                    "+-----------+------------+--------+--------------+" + NEW_LINE;
 
     private static final String STATMENT_FOOTER =
                     "+-----------+------------+--------+--------------+";

@@ -17,7 +17,7 @@ public class Transaction {
     public static final DateFormat DD_MM_YYYY = new SimpleDateFormat("dd/MM/yyyy");
     private static final NumberFormat DDDD_DDDD = new DecimalFormat("0000000.0000");
     private static final String NA = "NA";
-    private static final String ROW = "| %s    | %s | %s | %s |\n";
+    private static final String ROW = "| %s    | %s | %s | %s |" + System.lineSeparator();
     /*----------------------------------------------------------------------------------------*/
     private   Date              date;
     protected String            accountTransactionId;
