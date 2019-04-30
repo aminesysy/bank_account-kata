@@ -20,9 +20,9 @@ public class Transaction {
     private static final String ROW = "| %s    | %s | %s | %s |" + System.lineSeparator();
     /*----------------------------------------------------------------------------------------*/
     private   Date              date;
-    protected String            accountTransactionId;
-    protected BigDecimal        amount;
-    protected TransactionType   transactionType;
+    private String            accountTransactionId;
+    private BigDecimal        amount;
+    private TransactionType   transactionType;
 
     public Transaction() {
         super();
@@ -38,8 +38,8 @@ public class Transaction {
     /*-------------------------------------------------------------*/
     /*            PRINT Transaction                                     */
     /*-------------------------------------------------------------*/
-    public void print(StringBuilder sb) {
-        String accountTransactionIdStr = accountTransactionId == null ? NA : accountTransactionId.toString();
+    protected void print(StringBuilder sb) {
+        String accountTransactionIdStr = accountTransactionId == null ? NA : accountTransactionId;
         String dateStr = date == null ? NA : DD_MM_YYYY.format(date);
         String typeStr = transactionType == null ? NA : transactionType.toString();
         String amountStr = amount == null ? NA : DDDD_DDDD.format(amount);
