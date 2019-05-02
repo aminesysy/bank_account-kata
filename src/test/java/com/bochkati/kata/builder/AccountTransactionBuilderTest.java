@@ -52,7 +52,7 @@ public class AccountTransactionBuilderTest {
     }
 
     @Test
-    public void shouldPrintSomeStatements() throws WrongAmountException {
+    public void shouldPrintSomeStatements() {
         service.withdraw(account, BigDecimal.valueOf(1000.0));
         service.deposit(account, BigDecimal.valueOf(1500.0));
         String statment = service.statment(account);
@@ -72,26 +72,26 @@ public class AccountTransactionBuilderTest {
     }
 
     @Test
-    public void shouldReturnOldBalncePlus1000WhenNewTransactionCreditOf1000() throws WrongAmountException {
+    public void shouldReturnOldBalncePlus1000WhenNewTransactionCreditOf1000() {
         BigDecimal oldBalnce = service.computeBalance(account);
         service.deposit(account, BigDecimal.valueOf(1000.0));
         assertThat(oldBalnce.subtract(service.computeBalance(account))).isEqualTo(BigDecimal.valueOf(1000.0));
     }
 
     @Test
-    public void shouldReturnOldBalnceMinus1000WhenNewTransactionWithdrawOf1000() throws WrongAmountException{
+    public void shouldReturnOldBalnceMinus1000WhenNewTransactionWithdrawOf1000() {
         BigDecimal oldBalnce = service.computeBalance(account);
         service.withdraw(account, BigDecimal.valueOf(1000.0));
         assertThat(service.computeBalance(account).subtract(oldBalnce)).isEqualTo(BigDecimal.valueOf(1000.0));
     }
 
     @Test(expected= WrongAmountException.class)
-    public void shouldThrowWrongAmountExcepionWhenNegativeAmountSuppliedForDeposit() throws WrongAmountException {
+    public void shouldThrowWrongAmountWhenNegativeAmountSuppliedForDeposit() {
         service.deposit(account, BigDecimal.valueOf(-1000.0));
     }
 
     @Test(expected= WrongAmountException.class)
-    public void shouldThrowWrongAmountExcepionWhenNegativeAmountSuppliedForWithdraw() throws WrongAmountException {
+    public void shouldThrowWrongAmountWhenNegativeAmountSuppliedForWithdraw() {
         service.withdraw(account, BigDecimal.valueOf(-1000.0));
     }
 

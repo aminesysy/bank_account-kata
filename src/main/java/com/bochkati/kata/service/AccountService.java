@@ -7,12 +7,8 @@ import com.bochkati.kata.domain.TransactionType;
 import com.bochkati.kata.exception.WrongAmountException;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class AccountService {
     public BigDecimal computeBalance(Account account) {
@@ -56,14 +52,14 @@ public class AccountService {
     /*-------------------------------------------------------------*/
     /*            DEPOSIT                                          */
     /*-------------------------------------------------------------*/
-    public BigDecimal deposit(Account account, BigDecimal amount) throws WrongAmountException {
+    public BigDecimal deposit(Account account, BigDecimal amount)  {
         return executeTransaction(account, amount, TransactionType.DEBIT);
     }
 
     /*-------------------------------------------------------------*/
     /*            WITHDRAW                                         */
     /*-------------------------------------------------------------*/
-    public BigDecimal withdraw(Account account, BigDecimal amount) throws WrongAmountException{
+    public BigDecimal withdraw(Account account, BigDecimal amount) {
         return executeTransaction(account, amount, TransactionType.CREDIT);
     }
 

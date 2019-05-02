@@ -1,6 +1,6 @@
 package com.bochkati.kata.exception;
 
-public class WrongAmountException extends Exception {
+public class WrongAmountException extends RuntimeException {
     public WrongAmountException() {
         super();
     }
