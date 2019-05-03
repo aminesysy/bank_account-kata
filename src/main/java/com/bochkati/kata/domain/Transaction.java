@@ -82,4 +82,41 @@ public class Transaction {
     public void setTransactionType(TransactionType transactionType) {
         this.transactionType = transactionType;
     }
+
+    public static class Builder {
+
+        private Transaction transaction;
+
+        public Builder() {
+            transaction = new Transaction();
+        }
+
+        public Builder createBuilder() {
+            return this;
+        }
+
+        public Builder id(String accountTransactionId) {
+            transaction.accountTransactionId = accountTransactionId;
+            return this;
+        }
+
+        public Builder amount(BigDecimal amount) {
+            transaction.amount = amount;
+            return this;
+        }
+
+        public Builder recordType(TransactionType transactionType) {
+            transaction.transactionType = transactionType;
+            return this;
+        }
+
+        public Builder date(LocalDate date) {
+            transaction.date = date;
+            return this;
+        }
+
+        public Transaction build() {
+            return transaction;
+        }
+    }
 }

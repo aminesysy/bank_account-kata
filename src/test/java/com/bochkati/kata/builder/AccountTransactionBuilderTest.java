@@ -41,7 +41,7 @@ public class AccountTransactionBuilderTest {
 
         service = new AccountService();
 
-        account = new AccountBuilder()
+        account = new Account.Builder()
                 .createBuilder()
                 .id("ACC-01")
                 .customer("BOCHKATI-01")

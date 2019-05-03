@@ -23,7 +23,7 @@ public class AccountBuilderTest {
     @Before
     public void setUp() {
 
-    account = new AccountBuilder()
+    account = new Account.Builder()
                 .createBuilder()
                 .id("ACC-01")
                 .customer("BOCHKATI-01")

@@ -81,4 +81,40 @@ public class Account {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
+
+    public static class Builder {
+        Account account;
+
+        public Builder() {
+            account = new Account();
+        }
+
+        public Builder createBuilder() {
+            return this;
+        }
+
+        public Builder id(String accountId) {
+            account.accountId = accountId;
+            return this;
+        }
+
+        public Builder customer(String customerId) {
+            account.customerId = customerId;
+            return this;
+        }
+
+        public Builder transactions(List<Transaction> transactions) {
+            account.transactions = transactions ;
+            return this;
+        }
+
+        public Builder transaction(Transaction transaction) {
+            account.transactions.add(transaction);
+            return this;
+        }
+
+        public Account build() {
+            return account;
+        }
+    }
 }
