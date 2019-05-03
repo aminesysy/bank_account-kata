@@ -4,7 +4,7 @@ import com.bochkati.kata.domain.Transaction;
 import com.bochkati.kata.domain.TransactionType;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class AccountTransactionBuilder {
 
@@ -33,7 +33,7 @@ public class AccountTransactionBuilder {
         return this;
     }
 
-    public AccountTransactionBuilder date(Date date) {
+    public AccountTransactionBuilder date(LocalDate date) {
         transaction.setDate(date);
         return this;
     }

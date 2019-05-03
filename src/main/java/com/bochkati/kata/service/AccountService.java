@@ -7,7 +7,7 @@ import com.bochkati.kata.domain.TransactionType;
 import com.bochkati.kata.exception.WrongAmountException;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class AccountService {
@@ -41,7 +41,7 @@ public class AccountService {
                                     .id(String.valueOf(account.getTransactions().size() + 1))
                                     .amount(amount)
                                     .recordType(transactionType)
-                                    .date(new Date())
+                                    .date(LocalDate.now())
                                     .build();
 
         account.getTransactions().add(transaction);

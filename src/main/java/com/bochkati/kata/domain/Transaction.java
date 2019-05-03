@@ -7,7 +7,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
 
@@ -19,7 +19,7 @@ public class Transaction {
     private static final String NA = "NA";
     private static final String ROW = "| %s    | %s | %s | %s |" + System.lineSeparator();
     /*----------------------------------------------------------------------------------------*/
-    private   Date              date;
+    private LocalDate           date;
     private String            accountTransactionId;
     private BigDecimal        amount;
     private TransactionType   transactionType;
@@ -28,8 +28,8 @@ public class Transaction {
         super();
     }
 
-    public Transaction(Date date, String accountTransactionId, BigDecimal amount, TransactionType transactionType) {
-        this.date = (Date) date.clone();
+    public Transaction(LocalDate date, String accountTransactionId, BigDecimal amount, TransactionType transactionType) {
+        this.date = date;
         this.accountTransactionId = accountTransactionId;
         this.amount = amount;
         this.transactionType = transactionType;
@@ -38,7 +38,7 @@ public class Transaction {
     /*-------------------------------------------------------------*/
     /*            PRINT Transaction                                     */
     /*-------------------------------------------------------------*/
-    protected void print(StringBuilder sb) {
+    void print(StringBuilder sb) {
         String accountTransactionIdStr = accountTransactionId == null ? NA : accountTransactionId;
         String dateStr = date == null ? NA : DD_MM_YYYY.format(date);
         String typeStr = transactionType == null ? NA : transactionType.toString();
@@ -51,11 +51,11 @@ public class Transaction {
                 amountStr));
     }
 
-    public Date getDate() {
-        return (Date) this.date.clone() ;
+    public LocalDate getDate() {
+        return  this.date ;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

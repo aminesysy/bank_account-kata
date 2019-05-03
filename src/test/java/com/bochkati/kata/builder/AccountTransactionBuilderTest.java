@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class AccountTransactionBuilderTest {
     private static final String NEW_LINE = System.lineSeparator();
@@ -47,7 +47,7 @@ public class AccountTransactionBuilderTest {
                 .customer("BOCHKATI-01")
                 .build();
 
-        String today = Transaction.DD_MM_YYYY.format(new Date());
+        String today = Transaction.DD_MM_YYYY.format(LocalDate.now());
         expectedStatement = String.format(expectedStatement, today, today);
     }
 
